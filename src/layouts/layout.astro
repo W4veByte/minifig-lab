@@ -1,0 +1,38 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Sidebar from "../components/sidebar.jsx";
+
+export interface Props {
+    title?: string;
+    showSidebar?: boolean;
+}
+
+const { title, showSidebar } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Minifig Lab">
+    <meta name="generator" content={Astro.generator}>
+    <meta name="theme-color" >
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/src/styles/utils.css">
+    <link rel="stylesheet" href="/src/styles/global.css">   
+    <title>{title}</title>
+    <ViewTransitions />
+</head>
+
+<body class="overflow-hidden">
+    <div class={`grid ${showSidebar ? 'grid-cols-sidebar' : 'grid-cols-1'}`}>
+        {showSidebar && <Sidebar />}
+        <main class="px-24">
+            <slot />
+        </main>
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js" integrity="sha512-lYMiwcB608+RcqJmP93CMe7b4i9G9QK1RbixsNu4PzMRJMsqr/bUrkXUuFzCNsRUo3IXNUr5hz98lINURv5CNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</html>

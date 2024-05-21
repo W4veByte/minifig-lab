@@ -1,0 +1,22 @@
+@import url('https://fonts.cdnfonts.com/css/baloo');
+
+body {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  min-height: 100vh;
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-cols-sidebar {
+  grid-template-columns: 20rem 1fr; /* Sidebar width and main content */
+}
+
+.md\:grid-cols-sidebar {
+  grid-template-columns: 20rem 1fr; /* Sidebar width and main content */
+}
